@@ -1,0 +1,10 @@
+label{
+  color: #b8bbbe;  /* Color del texto cuando está deshabilitado */
+}
+
+input:disabled {
+  background-color: #eaeef2;  /* Color de fondo cuando está deshabilitado */
+  color: #b8bbbe;  /* Color del texto cuando está deshabilitado */
+  border: 2px #dcdfe3 solid; /* Color del borde cuando está deshabilitado */
+  cursor: not-allowed;  /* Cambia el cursor cuando está deshabilitado */
+}

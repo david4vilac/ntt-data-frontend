@@ -1,0 +1,38 @@
+<div class="container">
+  <h3 class="mb-4">Información basica</h3>
+  @if(cliente){
+  <form [formGroup]="clienteForm">
+    <article class="mb-4">
+      <label for="primerApellido">Primer apellido</label>
+      <input
+        type="text"
+        id="primerApellido"
+        formControlName="primerApellido"
+        class="form-control"
+      />
+    </article>
+    <article class="mb-4">
+      <label for="primerNombre">Primer nombre</label>
+      <input
+        type="text"
+        id="primerNombre"
+        formControlName="primerNombre"
+        class="form-control"
+      />
+    </article>
+  </form>
+  } @else {
+    <app-not-fount/>
+  }
+
+  <article class="text-center">
+    <button
+    type="submit"
+    class="button btn btn-primary btn-block"
+    (click)="volver()"
+    >
+    <span class="bi-chevron-left"></span>
+    Volver
+  </button>
+  </article>
+</div>

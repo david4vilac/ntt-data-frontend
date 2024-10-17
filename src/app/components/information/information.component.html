@@ -1,0 +1,72 @@
+<section>
+  <form class="p-4 pt-0" (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+    <p>Todos los campos son obligatorios</p>
+    <article class="mb-4">
+      <label for="tipoDocumento" class="form-label">Tipo de documento</label>
+      <select
+        name="tipoDocumento"
+        id="tipoDocumento"
+        class="form-select form-select-sm"
+        formControlName="tipoDocumento"
+
+      >
+        <option value='' disabled selected>Abrir este menú de selección</option>
+        @for (key of getEnumKeys(); track key){
+        <option [value]="key">{{ tipoDocumentoIdentidad[key] }}</option>
+        }
+      </select>
+      @if(contactForm.get('tipoDocumento')?.touched &&
+      contactForm.get('tipoDocumento')?.errors?.['required']){
+      <app-custom-alert [mensajeAlerta]="'Este campo es obligatorio.'" />
+      }
+    </article>
+    <article class="mb-4">
+      <label for="numeroDocumento" class="form-label"
+        >Numero de documento</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="numeroDocumento"
+        name="numeroDocumento"
+        required
+        placeholder="Numero Documento"
+        formControlName="numeroDocumento"
+        mask="separator.0"
+      />
+      @if(contactForm.get('numeroDocumento')?.touched &&
+      contactForm.get('numeroDocumento')?.errors?.['required']){
+      <app-custom-alert [mensajeAlerta]="'Este campo es obligatorio.'" />
+      } @if(contactForm.get('numeroDocumento')?.touched &&
+      contactForm.get('numeroDocumento')?.errors?.['minLengthNotMet']){
+
+      <app-custom-alert
+        [mensajeAlerta]="
+          'El número de documento debe tener al menos 8 caracteres.'
+        "
+      />
+
+      }@if(contactForm.get('numeroDocumento')?.touched &&
+      contactForm.get('numeroDocumento')?.errors?.['maxLengthExceeded']){
+
+      <app-custom-alert
+        [mensajeAlerta]="
+          'El número de documento no puede tener más de 11 caracteres.'
+        "
+      />
+
+      }
+    </article>
+
+    <article class="text-center">
+      <button
+        type="submit"
+        class="button btn btn-primary"
+        [disabled]="contactForm.invalid"
+      >
+        Buscar
+      </button>
+    </article>
+  </form>
+</section>
+<app-tabla-clientes class="m-2"/>

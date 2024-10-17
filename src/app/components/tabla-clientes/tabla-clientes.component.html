@@ -1,0 +1,29 @@
+<section>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID Cliente</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo documento</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(cliente of listaClientes; track cliente.idCliente){
+      <tr>
+        <td>{{ cliente.idCliente }}</td>
+        <td>{{ cliente.primerNombre }}</td>
+        <td>
+          {{ cliente.tipoDocumento }} - @if(cliente.tipoDocumento) {
+          {{ tipoDocumentoIdentidad[cliente.tipoDocumento] }} }
+        </td>
+        <td>{{ cliente.ciudad }}</td>
+        <td>{{ cliente.documento }}</td>
+        <td>{{ cliente.direccion }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>

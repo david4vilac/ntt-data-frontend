@@ -1,0 +1,24 @@
+button:disabled {
+  background-color: #eaeef2;  /* Color de fondo cuando está deshabilitado */
+  color: #b8bbbe;  /* Color del texto cuando está deshabilitado */
+  border: 2px #dcdfe3 solid; /* Color del borde cuando está deshabilitado */
+  cursor: not-allowed;  /* Cambia el cursor cuando está deshabilitado */
+}
+
+p{
+  font-size: 16px;
+  color: #b8bbbe;
+}
+
+section{
+  background-color: #f7fbff;
+  border: 1px #b8bbbe solid;
+}
+
+
+  /* Para navegadores Webkit (Chrome, Safari) */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
